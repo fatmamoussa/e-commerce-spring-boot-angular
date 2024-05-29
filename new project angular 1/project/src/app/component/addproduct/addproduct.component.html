@@ -1,0 +1,51 @@
+
+<div class="register-form">
+     <div class="p-5">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+    </div>
+    <form class="user" [formGroup]="form">
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control form-control-user" id="exampleName" placeholder="name" formControlName="name">
+            </div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control form-control-user" id="exampleprice" placeholder="price" formControlName="price">
+            </div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control form-control-user" id="exampledescription" placeholder="description" formControlName="description">
+            </div>
+        </div>
+
+        <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                 <select class="form-select" formControlName="idsubcategory">
+                    <option *ngFor="let subcategory of listsubcategory" [value]="subcategory.id">{{subcategory.title}}</option>
+                 </select>
+              </div>
+     
+                <div class="col-sm-6 ">
+                    
+                 <select class="form-select" formControlName="idprovider">
+                    <option *ngFor="let provider of listprovider" [value]="provider.id">{{provider.firstName}}</option>
+                 </select>
+              </div>
+
+
+        </div>
+              <div class="form-group row">
+          
+            <div class="col-sm-6 mb-3 mb-sm-0">
+               
+        
+                <input type="file"  (change)="handleFileInput($event)" name="file"
+                 class="form-control form-control-user" id="exampleInputPassword"  placeholder="file">
+            </div>
+        </div>
+         <button type="button" class="collapse-item"  (click)="onSubmit()">log</button>
+        
+   </form>
+</div>     
+
+ 
+

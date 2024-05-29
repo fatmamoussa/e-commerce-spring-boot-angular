@@ -1,0 +1,72 @@
+phpadmin:
+to open the phpadmin we have first to open the intilij and 
+the xampp we shoul click on the begin or the start for the first two
+options and than click on the buttom admin for the second option
+
+
+for the postman :
+but first we have tp run or compile the app in the intilij
+first new 
+then user
+then body
+then raw
+then jason
+then chose if save its puts 
+//the port is 8080
+and f it's for all we chose the gets
+after the save or the all we have to save them like we close 
+a window on the chrome 
+put==update (ema lazm tzid fi intilig aka public w @mapping w return)
+ 
+path howa win n7otou URL;
+
+
+_______________________________
+200k == ok                     |
+400 === bad request            |
+404 === probleme fi path       | 
+401===non autorisé fi port     |
+500==Probleme fi code          |
+_______________________________|
+
+
+ken bch naamlou inhiretence nzidou Tt7t el entity aka el inheritance 
+fi super class par example user 
+w fi generated n7ou AKA identity bi table 
+3la 5arer bch nbdlou ID bil Table
+    @GeneratedValue(strategy = GenerationType.Identity)=    @GeneratedValue(strategy = GenerationType.TABLE)
+===
+
+mappedby (chnwa bch n3tou ism liil category)
+el category feha collections mt3 souscategory w el subcategory feha ID m3 el category
+@Joincolunm=== tzid colunmm 
+eli n7otou fi lappedby n7outou nfsou fi private(attribut) mt3 @JOINCOLUNM
+
+** many to  (bch yzid table jdid ya5dh rl id mt3 kol w7d)(nktbou el code hadha fi 
+class proprietaire exp el ordre propritaire 3la product donc nktbouh fi ordre)
+w fi product nzidou aka el mapped by
+
++ * one to many
+* + many to one
+
+
+kol manaamlou private naamlou maaha el getter w setter
+
+
+w9t ma ykoun 3ndna mappedby nizoud 9bal el getwsetter 9bal el get mt3ha @jsonIgnore
+
+win ykoun 3ndna * nzidou el @Join colunm 
+win ykpoun 3ndna number 1 nzidou EL mappedby
+
+
+eli b7dhaha * nzidou leha fi contommer el faza mt3 aka el save
+w fi models dima nktbou fehom les relations
+
+image==form data not raw and jason w n7otou file chnwa lktbnaha fi controller
+w nbdlou type men text li file W LAZM COCHER ken t7alet fi header aka el wa7da w 
+b3d bch n3mrou les phrases nrjaaou lil body raw json w nbdlouha login fi 3oudh register (method)
+
+
+fi l'image dima n7ou @request body w n7outou @RequestParam 
+
+w ken bch n3mlou NEW project lazem nbadlou ism le projet fi application properties

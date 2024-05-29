@@ -1,0 +1,29 @@
+<div class="form-group">
+  <label>Search</label>
+  <input type="text" [(ngModel)]="term_search" class="form-control"/>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">adresse</th>
+        <th scope="col">city</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let l of client | recherche2:term_search  |  paginate: { itemsPerPage: 2, currentPage: p }  ;let index=index">
+        <th scope="row">{{index+1}}</th>
+        <td>{{l.adresse}}</td>
+        <td>{{l.city}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteclient(l.id)">Delete</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-info" [routerLink]="['/detailclient',l.id]">Detail</button> 
+        
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -1,0 +1,158 @@
+
+
+ng new nom_projet
+cd  nom_projet
+ng serve --open
+ng v (pour connaitre version angular) 
+
+
+for creating a new project
+first create a dossier
+then the one beside rechercher where it has the name of the dossier and it's icon
+we write "cmd" 
+then we do ng new project and the y for yes and then wait
+then cd_my app
+then ng serve -o (ng serve for run and -o to open it on page navigateur)
+ctrl+c 
+w bch yt7l bel visyal code nktb (code .  )
+
+bcch nsaan3ou compounent jdid naamlou ng g c w b3dika namefi visual code 
+bch n3aytou li composant a traver el selector fi ts (app-*****)
+
+
+
+nzid el path  mt3 kol composant fi app routing
+eli t7tou fi path it is the same for routerLink (nfas5ou aka el herf w # w nbadlouha bi routerLink w aka e
+el esm mt3 composant 
+<router-outlet> nst5dmouha bch t5dm el routing w n7touha mara barka fi html mt3 app component
+w nzidou el path fi app routing modules ts exp (projet project)
+const routes: Routes = [
+  {path:'',component:HomeComponent}
+  (((w el path for components is except ek app component is ::::  {path:'addproduct',component:AddproductComponent})))
+];
+
+
+
+
+first ng g s monservice
+
+bch n7lou projet back fi environment.ts nzidou url 
+export const environment = {
+  production: false,
+  baseurl:"http://localhost:8082"
+};
+w fi app.module.ts nzidou
+import{HttpClientModule} from '@angular/common/http';
+w fi imports
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+
+3la kol objet n3mlou service exp el produit n3mlou service w n7tou fi les methodes el kol like put w get w save
+(ng g s mon service) w dima n5dlou 3la .ts
+w b3dika fi monservice.service.ts nktbou hadhi
+export class ProductService {
+  constructor(private http:HttpClient) { }
+  getproducts(){
+    return this.http.get(`${environment.baseurl}/users/product/all`) /* (nb:nst5dmou alt gr+7) lil cote*/
+  }
+}
+
+then ng g c listmonservice w b3dika fi wost el composant.ts N3mlou creation mt3 instance de service fi wost el 
+constructor (private product service :Product service)
+w b3dika el declartion my3 aka list producy:any 
+getproducts(){
+    this.productservice.getproducts().subscribe((res:any)=>{
+      this.listproduct=res
+      console.log("listproduct",this.listproduct)
+    })
+  }
+w lazm n3mlou appel fi ngoninit lil getsproduct
+ ngOnInit(): void {
+    this.getproducts()
+  }
+
+ken bch n5dmou bel id y3ni bch nb3thou 7aja bel id donc n3mlou haka
+ <button type="button" class="btn btn-info" '''''''[routerLink]="['/detailproduct',p.id]''''''''">Detail</button> 
+
+aya 7aja declarer men fou9 bch njmou nst5dmouha ken bi this.akael7aja
+
+
+lil formulaire
+first nlchou lil app.modules.ts w nzidou fi imports   :   ReactiveFormsModule
+then nmchou lil tsconfig.json w nzidou :    "strictPropertyInitialization": false
+
+fi qq update or save fi service dima n7oyou attribut for example
+register(client:any){
+    return this.http.post(`${environment.baseurl}/users/coustom/register1`,client) 
+}
+w nzidou hadhi fi html formControlName="name"
+
+el module pagination maydhherch les produits el kola badhaadhom najmou n5tarou 0deh n7bou nwarou
+steps :
+fi html nzidou paginate
+(  | paginate: { itemsPerPage: 2, currentPage: p } )
+w nzidou paginate control
+ ( <pagination-controls (pageChange)="p = $event"></pagination-controls> ti7t el tableau)
+w nzidou fi ts p: number = 1; (fi declaration)
+
+
+pipe t3ml filtrage lil liste mt3k (ng g p pipes/recherche) 
+
+
+w9t n5dmou bel ng models nzidou el module Formsmodule fi app.modules fi imports
+
+w nzidou fi html par exp <div class="form-group">
+  <label>Search</label>
+  <input type="text" [(ngModel)]="term_search" class="form-control"/>
+</div>
+ 
+w lazm hadhom el zouz ykounou bi nafs el name 
+// [(ngModel)]="term_search" w hadhu fi par example fi declartion mt3 ts listproduct ///term_search:any
+
+
+n7touha <router-outlet></router-outlet> fi app.component.html fi project bch n3mlou el routing
+
+bch n3mlou appel mt3 componnent fi wast componnent nst5dmou el selector fi ts mt3ou exp fi home         <!-- Footer -->
+    <app-footer></app-footer> 
+            <!-- End of Footer -->
+
+
+
+hadhi bch n7dhou 3la footer w navbar 7ata law mchina li new page par exp mchina lil page mt3 addproduct(((
+ {path:'',component:HomeComponent,children:[
+    {path:'listproduct',component:ListproductComponent},
+    {path:'addproduct',component:AddproductComponent}
+  ]},
+w najmou nzidou hadhi for afficher the main page 
+const routes: Routes = [
+  {path:'',component:HomeComponent,children:[
+    {path:'',component:LayoutComponent},
+    {path:'listproduct',component:ListproductComponent},
+    {path:'addproduct',component:AddproductComponent}
+  ]},
+
+
+
+w nzidou hadhi fi html mt3 home bch t5dm el routing       par exp mt3 list producy fi home 
+ <!-- Begin Page Content -->
+         <!--    <app-layout></app-layout>--> 
+                <!-- /.container-fluid -->
+  <router-outlet></router-outlet>
+ ))))
+  
+
+
+Swal ====npm i sweetalert2
+
+
+BCH n3ml add bel id juste n3ml service li ism aka el id w ba3dika nzidoulha get mt3ha 
+parexmp fi add product 3mlna service subcategory w service provider
+w b3dika 7atina el get mt3hom houma les deux fi addproduct.ts
+
+
+
+
+
